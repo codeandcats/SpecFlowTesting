@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Casio", "Casio\Casio.csproj", "{FB255501-F3F2-4610-9884-A32EAFA0616D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Casio.Specs", "Casio.Specs\Casio.Specs.csproj", "{4613BD72-46EE-4BD9-A320-B11163E32B94}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FB255501-F3F2-4610-9884-A32EAFA0616D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB255501-F3F2-4610-9884-A32EAFA0616D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB255501-F3F2-4610-9884-A32EAFA0616D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB255501-F3F2-4610-9884-A32EAFA0616D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4613BD72-46EE-4BD9-A320-B11163E32B94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4613BD72-46EE-4BD9-A320-B11163E32B94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4613BD72-46EE-4BD9-A320-B11163E32B94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4613BD72-46EE-4BD9-A320-B11163E32B94}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
