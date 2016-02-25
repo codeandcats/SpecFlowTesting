@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace BookFace.Core
+namespace BookFace.Core.Models
 {
     public class User
     {
