@@ -45,6 +45,7 @@
     <Compile Include="Handlers\PostHandler.cs" />
     <Compile Include="Infrastructure\HandlerContext.cs" />
     <Compile Include="Models\Post.cs" />
+    <Compile Include="Models\PrivacyScope.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
