@@ -40,8 +40,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\DataStore.cs" />
-    <Compile Include="Handlers\IHandler.cs" />
+    <Compile Include="Infrastructure\Clock.cs" />
+    <Compile Include="Infrastructure\Handler.cs" />
     <Compile Include="Handlers\PostHandler.cs" />
+    <Compile Include="Infrastructure\HandlerContext.cs" />
+    <Compile Include="Models\Post.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

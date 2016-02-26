@@ -20,7 +20,7 @@ namespace BookFace.Core.Data
 
             if (!_lists.TryGetValue(type, out result))
             {
-                var listType = typeof(List<T>).MakeGenericType(type);
+                var listType = typeof(List<>).MakeGenericType(type);
                 result = Activator.CreateInstance(listType);
                 _lists.Add(type, result);
             }

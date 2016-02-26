@@ -1,4 +1,5 @@
-﻿using BookFace.Core.Data;
+﻿using BookFace.Core.Infrastructure;
+using BookFace.Core.Models;
 
 namespace BookFace.Core.Handlers
 {
@@ -6,24 +7,27 @@ namespace BookFace.Core.Handlers
     {
         public class Request
         {
+            public string Content { get; set; }
         }
 
         public class Response
         {
         }
 
-        public class Handler : IHandler<Request, Response>
+        public class Handler : BaseCommandHandler<Request>
         {
-            private IDataStore _store;
+            public Handler(IHandlerContext context) : base(context) { }
 
-            public Handler(IDataStore store)
+            public override void Handle(Request request)
             {
-                _store = store;
-            }
+                var post = new Post
+                {
+                    Author = Context.CurrentUser,
+                    PublishedDate = Context.Clock.Now,
+                    Content = request.Content
+                };
 
-            public Response Handle(Request request)
-            {
-                _store.Insert()
+                Context.DataStore.Insert(post);
             }
         }
     }
