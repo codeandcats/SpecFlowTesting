@@ -7,12 +7,12 @@ namespace BookFace.Core.Infrastructure
     {
         IClock Clock { get; set; }
         IDataStore DataStore { get; set; }
-        IUser CurrentUser { get; set; }
+        User CurrentUser { get; set; }
     }
 
     public class HandlerContext : IHandlerContext
     {
-        public HandlerContext(IClock clock, IDataStore dataStore, IUser currentUser)
+        public HandlerContext(IClock clock, IDataStore dataStore, User currentUser)
         {
             Clock = clock;
             DataStore = dataStore;
@@ -21,6 +21,6 @@ namespace BookFace.Core.Infrastructure
 
         public IClock Clock { get; set; }
         public IDataStore DataStore { get; set; }
-        public IUser CurrentUser { get; set; }
+        public User CurrentUser { get; set; }
     }
 }

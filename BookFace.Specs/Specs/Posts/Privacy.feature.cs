@@ -87,7 +87,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 8
  testRunner.Given("the following users:", ((string)(null)), table1, "Given ");
 #line 15
- testRunner.When("Fred creates a post shared with friends", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.When("Fred creates a post shared with friends", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
                         "UserName"});
@@ -105,7 +105,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 23
     testRunner.And("the following users should not be able to see it", ((string)(null)), table3, "And ");
 #line 28
- testRunner.When("Joe creates a post shared with public", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("Fred creates a post shared with public", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
                         "UserName"});

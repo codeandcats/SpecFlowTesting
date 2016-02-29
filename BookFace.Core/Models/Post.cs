@@ -2,17 +2,12 @@
 
 namespace BookFace.Core.Models
 {
-    public interface IPost
+    public class Post
     {
-        IUser Author { get; set; }
-        DateTime PublishedDate { get; set; }
-        string Content { get; set; }
-    }
-
-    public class Post : IPost
-    {
-        public IUser Author { get; set; }
+        public Guid Id { get; set; }
+        public Guid AuthorId { get; set; }
         public DateTime PublishedDate { get; set; }
+        public PrivacyScope Scope { get; set; }
         public string Content { get; set; }
     }
 }

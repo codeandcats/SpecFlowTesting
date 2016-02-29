@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using BookFace.Core.Infrastructure.Extensions;
 
 namespace BookFace.Core.Data
 {
@@ -12,6 +14,7 @@ namespace BookFace.Core.Data
     public class DataStore : IDataStore
     {
         private readonly Dictionary<Type, object> _lists = new Dictionary<Type, object>();
+        private readonly Dictionary<Type, Schema> _schemas = new Dictionary<Type, Schema>();
 
         private List<T> GetListFor<T>()
         {
@@ -28,14 +31,51 @@ namespace BookFace.Core.Data
             return (List<T>)result;
         }
 
-        public void Insert<T>(T obj)
+        private Schema GetSchema<T>()
         {
-            GetListFor<T>().Add(obj);
+            Schema schema;
+            var type = typeof(T);
+
+            if (!_schemas.TryGetValue(type, out schema))
+            {
+                schema = new Schema(type);
+                _schemas.Add(type, schema);
+            }
+
+            return schema;
         }
 
-        public IEnumerable<T> Select<T>()
+        public virtual void Insert<T>(T obj)
         {
-            return GetListFor<T>();
+            var list = GetListFor<T>();
+            var clone = obj.Clone();
+            list.Add(clone);
+        }
+
+        public virtual IEnumerable<T> Select<T>()
+        {
+            return GetListFor<T>().Select(x => x.Clone());
+        }
+
+        public virtual void Update<T>(T obj)
+        {
+            var list = GetListFor<T>();
+            var schema = GetSchema<T>();
+
+            Func<T, object> getId = o => schema.Identity.GetValue(o);
+
+            var id = getId(obj);
+
+            for (var index = 0; index < list.Count; index++)
+            {
+                var currentId = getId(list[index]);
+
+                if (currentId.Equals(id))
+                {
+                    list[index] = obj.Clone();
+                    return;
+                }
+            }
         }
     }
 }

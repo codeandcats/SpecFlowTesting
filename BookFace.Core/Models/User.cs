@@ -1,16 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace BookFace.Core.Models
 {
-    public interface IUser
+    public class User
     {
-        string UserName { get; set; }
-        List<string> FriendNames { get; set; }
-    }
-
-    public class User : IUser
-    {
+        public Guid Id { get; set; }
         public string UserName { get; set; }
-        public List<string> FriendNames { get; set; }
+        public List<Guid> FriendIds { get; set; }
     }
 }

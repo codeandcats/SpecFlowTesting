@@ -7,12 +7,12 @@
 Scenario: Post with privacy settings
 	Given the following users:
 
-	| UserName  | FriendNames  |
+	| UserName  | FriendNames   |
 	| Joe       | Natalie, Fred |
 	| Fred      | Joe           |
 	| Natalie   | Joe           |
 
-	When Fred creates a post shared with friends
+    When Fred creates a post shared with friends
 
 	Then the following users should be able to see it
 
@@ -25,7 +25,7 @@ Scenario: Post with privacy settings
 	| UserName |
     | Natalie  |
 
-	When Joe creates a post shared with public
+	When Fred creates a post shared with public
 
 	Then the following users should be able to see it
 

@@ -1,4 +1,5 @@
-﻿using BookFace.Core.Infrastructure;
+﻿using System;
+using BookFace.Core.Infrastructure;
 using BookFace.Core.Models;
 
 namespace BookFace.Core.Handlers
@@ -7,6 +8,7 @@ namespace BookFace.Core.Handlers
     {
         public class Request
         {
+            public PrivacyScope Scope { get; set; }
             public string Content { get; set; }
         }
 
@@ -22,8 +24,10 @@ namespace BookFace.Core.Handlers
             {
                 var post = new Post
                 {
-                    Author = Context.CurrentUser,
+                    Id = Guid.NewGuid(),
+                    AuthorId = Context.CurrentUser.Id,
                     PublishedDate = Context.Clock.Now,
+                    Scope = request.Scope,
                     Content = request.Content
                 };
 
