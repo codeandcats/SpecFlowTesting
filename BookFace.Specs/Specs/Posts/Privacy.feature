@@ -3,8 +3,8 @@
 	As a BookFace user
 	I want to be able to restrict who can see my posts when I post them
 
-@SmokeTests
-Scenario: Post with privacy settings
+@SmokeTest
+Scenario: Post shared with Friends
 	Given the following users:
 
 	| UserName  | FriendNames   |
@@ -24,6 +24,15 @@ Scenario: Post with privacy settings
 
 	| UserName |
     | Natalie  |
+
+@SmokeTest
+Scenario: Post shared with Public
+	Given the following users:
+
+	| UserName  | FriendNames   |
+	| Joe       | Natalie, Fred |
+	| Fred      | Joe           |
+	| Natalie   | Joe           |
 
 	When Fred creates a post shared with public
 

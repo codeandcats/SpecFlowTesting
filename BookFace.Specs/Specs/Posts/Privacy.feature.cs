@@ -17,8 +17,8 @@ namespace BookFace.Specs.Specs.Posts
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.0.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [TechTalk.SpecRun.FeatureAttribute("", Description="\tIn order to protect my privacy\r\n\tAs a BookFace user\r\n\tI want to be able to restr" +
-        "ict who can see my posts when I post them", SourceFile="Specs\\Posts\\Privacy.feature", SourceLine=0)]
+    [NUnit.Framework.TestFixtureAttribute()]
+    [NUnit.Framework.DescriptionAttribute("")]
     public partial class Feature
     {
         
@@ -27,27 +27,28 @@ namespace BookFace.Specs.Specs.Posts
 #line 1 "Privacy.feature"
 #line hidden
         
-        [TechTalk.SpecRun.FeatureInitialize()]
+        [NUnit.Framework.TestFixtureSetUpAttribute()]
         public virtual void FeatureSetup()
         {
-            testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner(null, 0);
+            testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
             TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "", "\tIn order to protect my privacy\r\n\tAs a BookFace user\r\n\tI want to be able to restr" +
                     "ict who can see my posts when I post them", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
-        [TechTalk.SpecRun.FeatureCleanup()]
+        [NUnit.Framework.TestFixtureTearDownAttribute()]
         public virtual void FeatureTearDown()
         {
             testRunner.OnFeatureEnd();
             testRunner = null;
         }
         
+        [NUnit.Framework.SetUpAttribute()]
         public virtual void TestInitialize()
         {
         }
         
-        [TechTalk.SpecRun.ScenarioCleanup()]
+        [NUnit.Framework.TearDownAttribute()]
         public virtual void ScenarioTearDown()
         {
             testRunner.OnScenarioEnd();
@@ -63,12 +64,13 @@ namespace BookFace.Specs.Specs.Posts
             testRunner.CollectScenarioErrors();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("Post with privacy settings", new string[] {
-                "SmokeTests"}, SourceLine=6)]
-        public virtual void PostWithPrivacySettings()
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Post shared with Friends")]
+        [NUnit.Framework.CategoryAttribute("SmokeTest")]
+        public virtual void PostSharedWithFriends()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Post with privacy settings", new string[] {
-                        "SmokeTests"});
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Post shared with Friends", new string[] {
+                        "SmokeTest"});
 #line 7
 this.ScenarioSetup(scenarioInfo);
 #line hidden
@@ -104,27 +106,49 @@ this.ScenarioSetup(scenarioInfo);
                         "Natalie"});
 #line 23
     testRunner.And("the following users should not be able to see it", ((string)(null)), table3, "And ");
-#line 28
- testRunner.When("Fred creates a post shared with public", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
-                        "UserName"});
-            table4.AddRow(new string[] {
-                        "Joe"});
-            table4.AddRow(new string[] {
-                        "Fred"});
-            table4.AddRow(new string[] {
-                        "Natalie"});
-#line 30
- testRunner.Then("the following users should be able to see it", ((string)(null)), table4, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.TestRunCleanup()]
-        public virtual void TestRunCleanup()
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Post shared with Public")]
+        [NUnit.Framework.CategoryAttribute("SmokeTest")]
+        public virtual void PostSharedWithPublic()
         {
-            TechTalk.SpecFlow.TestRunnerManager.GetTestRunner().OnTestRunEnd();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Post shared with Public", new string[] {
+                        "SmokeTest"});
+#line 29
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                        "UserName",
+                        "FriendNames"});
+            table4.AddRow(new string[] {
+                        "Joe",
+                        "Natalie, Fred"});
+            table4.AddRow(new string[] {
+                        "Fred",
+                        "Joe"});
+            table4.AddRow(new string[] {
+                        "Natalie",
+                        "Joe"});
+#line 30
+ testRunner.Given("the following users:", ((string)(null)), table4, "Given ");
+#line 37
+ testRunner.When("Fred creates a post shared with public", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                        "UserName"});
+            table5.AddRow(new string[] {
+                        "Joe"});
+            table5.AddRow(new string[] {
+                        "Fred"});
+            table5.AddRow(new string[] {
+                        "Natalie"});
+#line 39
+ testRunner.Then("the following users should be able to see it", ((string)(null)), table5, "Then ");
+#line hidden
+            this.ScenarioCleanup();
         }
     }
 }

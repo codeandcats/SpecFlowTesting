@@ -11,6 +11,7 @@
     <AssemblyName>BookFace.Specs</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>4755aedc</NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -46,10 +47,6 @@
       <HintPath>..\packages\Shouldly.2.6.0\lib\net40\Shouldly.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SpecRun.SpecFlowPlugin, Version=1.3.0.76, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\SpecRun.SpecFlow.1.3.0\lib\net45\SpecRun.SpecFlowPlugin.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -61,15 +58,11 @@
       <HintPath>..\packages\SpecFlow.2.0.0\lib\net45\TechTalk.SpecFlow.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="TechTalk.SpecRun, Version=1.3.0.76, Culture=neutral, PublicKeyToken=d0fc5cc18b3b389b, processorArchitecture=MSIL">
-      <HintPath>..\packages\SpecRun.SpecFlow.1.3.0\lib\net45\TechTalk.SpecRun.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Infrastructure\ValueRetrievers\FriendNamesValueRetriever.cs" />
     <Compile Include="Specs\BaseSteps.cs" />
-    <Compile Include="Specs\Posts\Privacy.cs" />
+    <Compile Include="Specs\Posts\Privacy.Steps.cs" />
     <Compile Include="Specs\Posts\Privacy.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -78,18 +71,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <None Include="Default.srprofile">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
     <None Include="Specs\Posts\Privacy.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Privacy.feature.cs</LastGenOutput>
-    </None>
-    <None Include="runtests.cmd" />
-    <None Include="SpecRunTestProfile.xsd">
-      <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
